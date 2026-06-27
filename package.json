@@ -1,0 +1,17 @@
+{
+  "name": "zeparture-website",
+  "version": "1.0.0",
+  "description": "Premium static marketing site for Zeparture — self-serve group departures for solo travelers.",
+  "private": true,
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./css/style.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./css/style.css --watch",
+    "dev": "tailwindcss -i ./src/input.css -o ./css/style.css --watch"
+  },
+  "keywords": ["zeparture", "travel", "static-site"],
+  "author": "",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "tailwindcss": "^3.4.19"
+  }
+}
