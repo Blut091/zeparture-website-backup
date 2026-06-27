@@ -1,10 +1,11 @@
 /**
  * ZEPARTURE — HERO 3D SCENE
  * ---------------------------------------------------------
- * A wireframe globe with glowing arcs that trace flight paths
- * across its surface, and small "departure" markers that travel
- * along those arcs. Built to be light enough for mobile:
- * capped pixel ratio, low poly counts, single render target.
+ * A wireframe globe with glowing flight-path arcs, each with a
+ * small low-poly paper-airplane flying along it (nose oriented
+ * to the direction of travel) and a short fading contrail.
+ * Built to be light enough for mobile: capped pixel ratio, low
+ * poly counts, single render target.
  * ---------------------------------------------------------
  */
 import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js";
@@ -98,9 +99,41 @@ if (canvas) {
     );
   }
 
+  // Tiny low-poly paper-airplane: nose points along local -Z so it can be
+  // aimed forward with .lookAt() as it travels along each arc.
+  function createPlane() {
+    const group = new THREE.Group();
+
+    const body = new THREE.Mesh(
+      new THREE.ConeGeometry(0.02, 0.1, 6),
+      new THREE.MeshBasicMaterial({ color: COLORS.accent })
+    );
+    body.rotation.x = -Math.PI / 2;
+    group.add(body);
+
+    const wing = new THREE.Mesh(
+      new THREE.BoxGeometry(0.13, 0.004, 0.032),
+      new THREE.MeshBasicMaterial({ color: COLORS.accent })
+    );
+    wing.position.z = 0.012;
+    group.add(wing);
+
+    const tailFin = new THREE.Mesh(
+      new THREE.BoxGeometry(0.05, 0.022, 0.004),
+      new THREE.MeshBasicMaterial({ color: COLORS.accent })
+    );
+    tailFin.position.z = 0.038;
+    tailFin.position.y = 0.008;
+    group.add(tailFin);
+
+    return group;
+  }
+
   const ARC_COUNT = 7;
   const arcs = [];
   const travelers = [];
+  const TRAIL_LENGTH = 5;
+  const TRAIL_GAP = 0.013;
 
   for (let i = 0; i < ARC_COUNT; i++) {
     const start = randomSurfacePoint(2.38);
@@ -124,16 +157,31 @@ if (canvas) {
     globeGroup.add(line);
     arcs.push(curve);
 
-    // glowing traveler dot
-    const dotGeo = new THREE.SphereGeometry(0.035, 8, 8);
-    const dotMat = new THREE.MeshBasicMaterial({
-      color: COLORS.accent,
-      transparent: true,
-      opacity: 0.95,
+    // the plane itself
+    const plane = createPlane();
+    globeGroup.add(plane);
+
+    // a short fading contrail of small dots behind it
+    const trailDots = [];
+    for (let t = 0; t < TRAIL_LENGTH; t++) {
+      const dotGeo = new THREE.SphereGeometry(0.016, 6, 6);
+      const dotMat = new THREE.MeshBasicMaterial({
+        color: COLORS.primary,
+        transparent: true,
+        opacity: 0.4 * (1 - t / TRAIL_LENGTH),
+      });
+      const dot = new THREE.Mesh(dotGeo, dotMat);
+      globeGroup.add(dot);
+      trailDots.push(dot);
+    }
+
+    travelers.push({
+      plane,
+      trailDots,
+      curve,
+      t: Math.random(),
+      speed: 0.07 + Math.random() * 0.045,
     });
-    const dot = new THREE.Mesh(dotGeo, dotMat);
-    globeGroup.add(dot);
-    travelers.push({ dot, curve, t: Math.random(), speed: 0.08 + Math.random() * 0.05 });
   }
 
   globeGroup.rotation.x = 0.15;
@@ -158,6 +206,7 @@ if (canvas) {
   });
 
   const clock = new THREE.Clock();
+  const _tmpLookTarget = new THREE.Vector3();
 
   function renderFrame() {
     const delta = clock.getDelta();
@@ -169,8 +218,23 @@ if (canvas) {
     travelers.forEach((tr) => {
       tr.t += delta * tr.speed;
       if (tr.t > 1) tr.t = 0;
+
       const p = tr.curve.getPoint(tr.t);
-      tr.dot.position.copy(p);
+      tr.plane.position.copy(p);
+
+      // aim the nose along the direction of travel — lookAt needs a
+      // WORLD-space target, but our curve points are in globeGroup's
+      // local space (it's spinning), so convert before calling it.
+      const tangent = tr.curve.getTangent(tr.t);
+      _tmpLookTarget.set(p.x + tangent.x, p.y + tangent.y, p.z + tangent.z);
+      globeGroup.localToWorld(_tmpLookTarget);
+      tr.plane.lookAt(_tmpLookTarget);
+
+      // fading contrail: each dot sits a little further back along the curve
+      tr.trailDots.forEach((dot, i) => {
+        const trailT = ((tr.t - (i + 1) * TRAIL_GAP) % 1 + 1) % 1;
+        dot.position.copy(tr.curve.getPoint(trailT));
+      });
     });
 
     renderer.render(scene, camera);
