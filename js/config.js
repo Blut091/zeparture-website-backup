@@ -10,8 +10,7 @@
  * ---------------------------------------------------------
  */
 window.ZEPARTURE_CONFIG = {
-  // TODO: replace with the real Zeparture business WhatsApp number
-  WHATSAPP_NUMBER: "910000000000",
+  WHATSAPP_NUMBER: "919193971645",
 
   BRAND_NAME: "Zeparture",
   SITE_URL: "https://zeparture.com",
