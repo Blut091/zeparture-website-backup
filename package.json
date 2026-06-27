@@ -8,7 +8,11 @@
     "watch:css": "tailwindcss -i ./src/input.css -o ./css/style.css --watch",
     "dev": "tailwindcss -i ./src/input.css -o ./css/style.css --watch"
   },
-  "keywords": ["zeparture", "travel", "static-site"],
+  "keywords": [
+    "zeparture",
+    "travel",
+    "static-site"
+  ],
   "author": "",
   "license": "UNLICENSED",
   "devDependencies": {

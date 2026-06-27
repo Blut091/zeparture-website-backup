@@ -46,6 +46,14 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
+  /* ---------- Hero background (subtle depth + glow, replaces flat fill) ---------- */
+  .hero-bg {
+    background:
+      radial-gradient(ellipse 70% 55% at 50% 18%, rgba(112, 0, 224, 0.16), transparent 62%),
+      radial-gradient(ellipse 60% 40% at 85% 75%, rgba(112, 0, 224, 0.06), transparent 65%),
+      linear-gradient(165deg, #181020 0%, #150F1E 38%, #120C19 68%, #110E1A 100%);
+  }
+
   /* ---------- Nav ---------- */
   .nav-glass {
     background: rgba(240, 238, 248, 0.72);
