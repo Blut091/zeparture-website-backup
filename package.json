@@ -5,6 +5,8 @@
   "private": true,
   "scripts": {
     "build:css": "tailwindcss -i ./src/input.css -o ./css/style.css --minify",
+    "build:html": "node build.js",
+    "build": "npm run build:html && npm run build:css",
     "watch:css": "tailwindcss -i ./src/input.css -o ./css/style.css --watch",
     "dev": "tailwindcss -i ./src/input.css -o ./css/style.css --watch"
   },

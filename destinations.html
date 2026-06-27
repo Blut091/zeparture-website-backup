@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Destinations — Zeparture</title>
+<meta name="description" content="Browse every Zeparture destination: live departures, fixed batches, on-request trips and what's coming soon." />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://zeparture.com/destinations.html" />
+<meta name="theme-color" content="#110E1A" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Zeparture Destinations" />
+<meta property="og:description" content="Browse every Zeparture destination: live departures, fixed batches, on-request trips and what's coming soon." />
+<meta property="og:url" content="https://zeparture.com/destinations.html" />
+<meta property="og:image" content="https://zeparture.com/assets/og-image.jpg" />
+<meta property="og:locale" content="en_IN" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Zeparture Destinations" />
+<meta name="twitter:description" content="Browse every Zeparture destination: live departures, fixed batches, on-request trips and what's coming soon." />
+<meta name="twitter:image" content="https://zeparture.com/assets/og-image.jpg" />
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%237000E0'/%3E%3Cpath d='M6 13.5 11 8l1.4 1.4-3.1 3.1H18v2H9.3l3.1 3.1L11 19z' fill='%23fff'/%3E%3C/svg%3E" />
+
+<!-- Performance: preconnect -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preconnect" href="https://cdn.jsdelivr.net" />
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<link rel="stylesheet" href="css/style.css" />
+
+
+</head>
+
+<body class="bg-surface font-body text-ink antialiased" data-page="destinations">
+
+<a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-white">Skip to content</a>
+
+<!-- =========================================================
+     NAV
+========================================================= -->
+<header id="site-nav" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 sm:px-8">
+    <a href="index.html" class="flex items-center gap-2.5">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect width="24" height="24" rx="6" fill="#7000E0"/>
+        <path d="M6 13.5 11 8l1.4 1.4-3.1 3.1H18v2H9.3l3.1 3.1L11 19z" fill="#fff"/>
+      </svg>
+      <span class="font-display text-lg font-semibold tracking-tight">Zeparture</span>
+    </a>
+
+    <div class="hidden items-center gap-8 md:flex">
+      <a href="how-it-works.html" data-nav="how-it-works" class="text-sm font-medium text-ink/70 transition hover:text-primary">How it works</a>
+      <a href="bali.html" data-nav="bali" class="text-sm font-medium text-ink/70 transition hover:text-primary">Bali Departure</a>
+      <a href="destinations.html" data-nav="destinations" class="text-sm font-medium text-ink/70 transition hover:text-primary">Destinations</a>
+      <a href="index.html#faq" class="text-sm font-medium text-ink/70 transition hover:text-primary">FAQ</a>
+    </div>
+
+    <div class="hidden md:block">
+      <a href="#" data-whatsapp data-whatsapp-template="general" class="btn-primary !px-5 !py-2.5 text-sm">
+        Plan my trip
+      </a>
+    </div>
+
+    <button id="menu-btn" aria-expanded="false" aria-label="Toggle menu" class="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 md:hidden">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 4h16M1 9h16M1 14h16" stroke="#1A1523" stroke-width="1.6" stroke-linecap="round"/></svg>
+    </button>
+  </nav>
+
+  <div id="mobile-menu" class="hidden flex-col gap-1 border-t border-ink/10 bg-surface px-5 pb-6 pt-2 md:hidden">
+    <a href="how-it-works.html" class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-white">How it works</a>
+    <a href="bali.html" class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-white">Bali Departure</a>
+    <a href="destinations.html" class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-white">Destinations</a>
+    <a href="index.html#faq" class="rounded-lg px-3 py-3 text-sm font-medium hover:bg-white">FAQ</a>
+    <a href="#" data-whatsapp data-whatsapp-template="general" class="btn-primary mt-2 w-full text-sm">Plan my trip</a>
+  </div>
+</header>
+
+<main id="main">
+<!-- =========================================================
+     DESTINATIONS GRID
+========================================================= -->
+<section id="destinations" class="bg-surface pt-36 pb-24 sm:pt-44 sm:pb-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div data-reveal class="max-w-xl">
+      <p class="eyebrow">The departures board</p>
+      <h2 class="mt-4 font-display text-3xl font-semibold leading-tight sm:text-4xl">Where Zeparture flies next.</h2>
+      <p class="mt-4 text-ink/60">Live destinations open for booking today. Everything else is being built — tell us where you want to go next.</p>
+    </div>
+
+    <div data-reveal-group class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- BALI -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-[#4B0096] p-7 text-white shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-25" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 8 38 28h24zM50 0c-3 8-3 14 0 20" stroke="#fff" stroke-width="2"/><path d="M30 32h40v8H30z" fill="#fff" fill-opacity=".5"/><path d="M20 44h60v40H20z" fill="#fff" fill-opacity=".3"/></svg>
+        <div data-badge-flip class="badge-live !bg-white/15 !text-white"><span class="badge-dot-live !bg-white"></span>Live</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Bali</h3>
+        <p class="mt-1 text-sm text-white/70">8D/7N · Seminyak, Gili T &amp; Ubud</p>
+        <a href="bali.html" class="btn-dark mt-6 w-full !bg-white text-sm">View Departure</a>
+      </article>
+
+      <!-- DUBAI -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-white p-7 shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-[0.12]" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M48 4 52 4 56 80 44 80z" fill="#1A1523"/><path d="M30 80h40v6H30z" fill="#1A1523"/></svg>
+        <div data-badge-flip class="badge-live"><span class="badge-dot-live"></span>Live</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Dubai</h3>
+        <p class="mt-1 text-sm text-ink/55">Desert, skyline &amp; souk group trip</p>
+        <a href="dubai.html" class="btn-dark mt-6 w-full text-sm">View Departure</a>
+      </article>
+
+      <!-- SINGAPORE -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-white p-7 shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-[0.12]" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="20" y="40" width="10" height="40" fill="#1A1523"/><rect x="35" y="28" width="10" height="52" fill="#1A1523"/><circle cx="62" cy="48" r="16" fill="#1A1523"/><rect x="60" y="48" width="4" height="32" fill="#1A1523"/></svg>
+        <div data-badge-flip class="badge-live"><span class="badge-dot-live"></span>Live</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Singapore</h3>
+        <p class="mt-1 text-sm text-ink/55">City, Sentosa &amp; food-trail group trip</p>
+        <a href="singapore.html" class="btn-dark mt-6 w-full text-sm">View Departure</a>
+      </article>
+
+      <!-- THAILAND -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-white p-7 shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-[0.12]" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 6c10 10 10 26 0 36-10-10-10-26 0-36z" fill="#1A1523"/><rect x="38" y="42" width="24" height="38" fill="#1A1523"/></svg>
+        <div data-badge-flip class="badge-fixed">Fixed Departures</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Thailand</h3>
+        <p class="mt-1 text-sm text-ink/55">Bangkok &amp; island-hopping batches</p>
+        <a href="#" data-whatsapp data-whatsapp-template="destination" data-whatsapp-name="Thailand" class="btn-ghost mt-6 w-full text-sm">See Dates</a>
+      </article>
+
+      <!-- MALAYSIA -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-white p-7 shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-[0.12]" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="38" y="10" width="8" height="70" fill="#1A1523"/><rect x="54" y="10" width="8" height="70" fill="#1A1523"/><rect x="30" y="38" width="40" height="6" fill="#1A1523"/></svg>
+        <div data-badge-flip class="badge-onrequest">On-request</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Malaysia</h3>
+        <p class="mt-1 text-sm text-ink/55">KL &amp; Langkawi — custom batches</p>
+        <a href="#" data-whatsapp data-whatsapp-template="destination" data-whatsapp-name="Malaysia" class="btn-ghost mt-6 w-full text-sm">Request This Trip</a>
+      </article>
+
+      <!-- SRI LANKA -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-white p-7 shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-[0.12]" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 10c8 8 8 22 0 30-8-8-8-22 0-30z" fill="#1A1523"/><rect x="40" y="40" width="20" height="40" rx="10" fill="#1A1523"/></svg>
+        <div data-badge-flip class="badge-onrequest">On-request</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Sri Lanka</h3>
+        <p class="mt-1 text-sm text-ink/55">Hills, coast &amp; wildlife — custom batches</p>
+        <a href="#" data-whatsapp data-whatsapp-template="destination" data-whatsapp-name="Sri Lanka" class="btn-ghost mt-6 w-full text-sm">Request This Trip</a>
+      </article>
+
+      <!-- VIETNAM -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-white p-7 shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-[0.12]" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M50 20a18 10 0 0 1 18 10H32a18 10 0 0 1 18-10z" fill="#1A1523"/></svg>
+        <div data-badge-flip class="badge-onrequest">On-request</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Vietnam</h3>
+        <p class="mt-1 text-sm text-ink/55">Hanoi to Ha Long — custom batches</p>
+        <a href="#" data-whatsapp data-whatsapp-template="destination" data-whatsapp-name="Vietnam" class="btn-ghost mt-6 w-full text-sm">Request This Trip</a>
+      </article>
+
+      <!-- MALDIVES -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-white p-7 shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-[0.12]" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="20" y="60" width="60" height="4" fill="#1A1523"/><rect x="30" y="46" width="14" height="14" fill="#1A1523"/><rect x="56" y="46" width="14" height="14" fill="#1A1523"/></svg>
+        <div data-badge-flip class="badge-onrequest">On-request</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Maldives</h3>
+        <p class="mt-1 text-sm text-ink/55">Overwater stays — custom batches</p>
+        <a href="#" data-whatsapp data-whatsapp-template="destination" data-whatsapp-name="Maldives" class="btn-ghost mt-6 w-full text-sm">Request This Trip</a>
+      </article>
+
+      <!-- PHILIPPINES -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-white p-7 shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-[0.08]" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M40 80V30c14 2 14 16 0 18" stroke="#1A1523" stroke-width="3" fill="none"/></svg>
+        <div data-badge-flip class="badge-soon">Coming Soon</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Philippines</h3>
+        <p class="mt-1 text-sm text-ink/55">Palawan &amp; Siargao — in the works</p>
+        <a href="#" data-whatsapp data-whatsapp-template="waitlist" data-whatsapp-name="Philippines" class="btn-ghost mt-6 w-full text-sm">Notify Me</a>
+      </article>
+
+      <!-- JAPAN -->
+      <article class="landmark-card group relative overflow-hidden rounded-3xl bg-white p-7 shadow-card">
+        <svg class="absolute -right-4 -top-2 h-28 w-28 opacity-[0.1]" viewBox="0 0 100 100" fill="none" aria-hidden="true"><rect x="25" y="30" width="50" height="6" fill="#1A1523"/><rect x="25" y="44" width="50" height="6" fill="#1A1523"/><rect x="32" y="20" width="6" height="64" fill="#1A1523"/><rect x="62" y="20" width="6" height="64" fill="#1A1523"/></svg>
+        <div data-badge-flip class="badge-soon">Coming Soon</div>
+        <h3 class="mt-12 font-display text-2xl font-semibold">Japan</h3>
+        <p class="mt-1 text-sm text-ink/55">Tokyo &amp; Kyoto — in the works</p>
+        <a href="#" data-whatsapp data-whatsapp-template="waitlist" data-whatsapp-name="Japan" class="btn-ghost mt-6 w-full text-sm">Notify Me</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="bg-footer pt-20 text-white/70">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+    <div class="grid gap-12 pb-16 sm:grid-cols-2 lg:grid-cols-4">
+
+      <div class="lg:col-span-2">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect width="24" height="24" rx="6" fill="#7000E0"/><path d="M6 13.5 11 8l1.4 1.4-3.1 3.1H18v2H9.3l3.1 3.1L11 19z" fill="#fff"/></svg>
+          <span class="font-display text-lg font-semibold text-white">Zeparture</span>
+        </a>
+        <p class="mt-4 max-w-sm text-sm text-white/50">A self-serve group departures platform for solo travelers — fixed dates, transparent pricing, and a trip captain on every batch.</p>
+        <a href="#" data-whatsapp data-whatsapp-template="general" class="btn-primary mt-6 text-sm">Chat on WhatsApp</a>
+      </div>
+
+      <div>
+        <p class="font-display text-sm font-semibold text-white">Destinations</p>
+        <ul class="mt-4 space-y-2.5 text-sm text-white/50">
+          <li><a href="bali.html" class="hover:text-white">Bali</a></li>
+          <li><a href="dubai.html" class="hover:text-white">Dubai</a></li>
+          <li><a href="singapore.html" class="hover:text-white">Singapore</a></li>
+          <li><a href="destinations.html" class="hover:text-white">Thailand</a></li>
+          <li><a href="destinations.html" class="hover:text-white">View all destinations</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="font-display text-sm font-semibold text-white">Company</p>
+        <ul class="mt-4 space-y-2.5 text-sm text-white/50">
+          <li><a href="how-it-works.html" class="hover:text-white">How it works</a></li>
+          <li><a href="index.html#faq" class="hover:text-white">FAQ</a></li>
+          <li><a href="#" class="hover:text-white">Terms &amp; Conditions</a></li>
+          <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-7 text-xs text-white/35 sm:flex-row">
+      <p>© <span id="footer-year">2026</span> Zeparture. All rights reserved.</p>
+      <p>Made for travelers who'd rather book than be sold to.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="#" data-whatsapp data-whatsapp-template="general" aria-label="Chat with Zeparture on WhatsApp"
+   class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-live shadow-[0_8px_24px_rgba(5,150,105,0.45)] transition-transform hover:scale-110">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.07-1.33A9.94 9.94 0 0 0 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2z" fill="#fff" fill-opacity=".15"/><path d="M16.5 13.3c-.25-.13-1.47-.72-1.7-.8-.23-.08-.4-.13-.56.13-.17.25-.65.8-.8.97-.14.17-.29.18-.54.07-.25-.13-1.05-.39-2-1.24-.74-.66-1.24-1.47-1.39-1.72-.14-.25-.02-.39.12-.52.14-.13.3-.34.46-.5.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.5-.08-.13-.5-1.2-.68-1.65-.18-.43-.36-.37-.5-.38-.13-.01-.28-.01-.43-.01-.15 0-.39.06-.6.3-.2.25-.78.76-.78 1.85s.8 2.15.91 2.3c.1.14 1.55 2.37 3.76 3.23 2.2.86 2.2.57 2.6.54.4-.04 1.3-.53 1.48-1.04.18-.5.18-.93.13-1.02-.05-.1-.18-.16-.43-.28z" fill="#fff"/></svg>
+</a>
+
+<noscript><p style="text-align:center;padding:2rem;">Please enable JavaScript to view live destinations and use WhatsApp booking buttons.</p></noscript>
+
+<script src="js/config.js"></script>
+<script src="js/whatsapp.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="js/main.js"></script>
+<script type="module" src="js/three-scene.js"></script>
+
+</body>
+</html>

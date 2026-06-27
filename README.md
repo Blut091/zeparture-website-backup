@@ -10,26 +10,54 @@ WhatsApp with a prefilled message.
 
 ## 1. Folder structure
 
+This is a **multi-page static site assembled by a tiny build script** —
+nav and footer live in one place (`partials/layout.html`) so they never
+drift out of sync across pages.
+
 ```
 zeparture/
-├── index.html              ← the entire site (single page)
+├── partials/
+│   └── layout.html          ← shared nav + footer + scripts (edit ONCE here)
+├── pages/                    ← page-specific content only (no nav/footer)
+│   ├── home.html             → builds to index.html
+│   ├── how-it-works.html
+│   ├── bali.html
+│   ├── destinations.html
+│   ├── dubai.html
+│   └── singapore.html
+├── build.js                  ← assembles partials/layout.html + pages/*.html → root *.html
+├── index.html, bali.html, … ← GENERATED — don't hand-edit, edit pages/ instead
 ├── css/
-│   └── style.css            ← compiled, minified Tailwind output (commit this)
+│   └── style.css             ← compiled, minified Tailwind output (commit this)
 ├── js/
-│   ├── config.js            ← ⚠️ WhatsApp number + message templates live here
-│   ├── whatsapp.js          ← wires every [data-whatsapp] button to wa.me
-│   ├── three-scene.js       ← Three.js hero scene (globe + flight-path arcs)
-│   └── main.js               ← GSAP ScrollTrigger reveals, nav, FAQ, flap board
+│   ├── config.js             ← ⚠️ WhatsApp number + message templates live here
+│   ├── whatsapp.js
+│   ├── three-scene.js
+│   └── main.js
 ├── src/
 │   └── input.css             ← Tailwind source (edit this, NOT css/style.css)
-├── tailwind.config.js        ← brand color tokens, fonts, keyframes
+├── tailwind.config.js
 ├── robots.txt
 ├── sitemap.xml
-├── netlify.toml              ← Netlify build + headers
-├── vercel.json                ← Vercel build + headers
+├── netlify.toml / vercel.json
 ├── package.json
 └── README.md
 ```
+
+**Only Bali, Dubai and Singapore get dedicated pages** — they're the only
+destinations marked "Live." Thailand, Malaysia, Sri Lanka, Vietnam, Maldives,
+Philippines and Japan live only as cards on `destinations.html` until their
+status changes; add a new page under `pages/` and register it in `build.js`
+when one of them goes live.
+
+> **Dubai and Singapore are template pages, not real itineraries.** There's
+> no source data for them yet (the Bali itinerary came from your DMC vendor
+> quote — these didn't). They're built to the same standard so the structure
+> is ready, but the highlight cards are generic placeholders. Replace them
+> with real day-by-day content before treating these as bookable in the
+> same way Bali is.
+
+
 
 ---
 
@@ -54,16 +82,24 @@ every button on the site reads from this one config object.
 
 ```bash
 npm install
-npm run watch:css     # rebuilds css/style.css as you edit src/input.css
+npm run build        # builds HTML pages (build.js) + CSS (Tailwind) once
+npm run watch:css     # then keep this running while you edit src/input.css
 ```
+
+**To change something on every page** (nav, footer, WhatsApp button):
+edit `partials/layout.html`, then run `npm run build:html`.
+
+**To change one page's content**: edit the matching file in `pages/`,
+then run `npm run build:html`. Never hand-edit the root `index.html`,
+`bali.html`, etc. — they're overwritten on every build.
 
 Then just open `index.html` in a browser (or serve the folder with any
 static server, e.g. `npx serve .`).
 
-To produce a fresh production build of the CSS at any time:
+To produce a fresh production build of everything at any time:
 
 ```bash
-npm run build:css
+npm run build
 ```
 
 ---
@@ -84,8 +120,8 @@ beyond what's already in this repo:
 3. Click **Deploy**.
 
 ### GitHub Pages
-`css/style.css` is already a committed, pre-built file, so Pages can serve
-the repo with **no build step**:
+Both `css/style.css` and every root `*.html` page are committed,
+pre-built files, so Pages can serve the repo with **no build step**:
 1. Push this repo to GitHub.
 2. Repo → **Settings → Pages** → Source: `Deploy from a branch` →
    Branch: `main`, folder: `/ (root)`.

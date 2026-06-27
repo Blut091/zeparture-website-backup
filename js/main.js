@@ -241,6 +241,17 @@ const yearEl = document.getElementById("footer-year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ---------------------------------------------------------
+   13. Highlight the active nav link based on body[data-page]
+--------------------------------------------------------- */
+const currentPage = document.body.dataset.page;
+if (currentPage) {
+  document.querySelectorAll(`[data-nav="${currentPage}"]`).forEach((link) => {
+    link.classList.remove("text-ink/70");
+    link.classList.add("text-primary");
+  });
+}
+
+/* ---------------------------------------------------------
    12. Inclusions / Exclusions tab toggle (mobile)
 --------------------------------------------------------- */
 const packageTabs = document.querySelectorAll("[data-package-tab]");

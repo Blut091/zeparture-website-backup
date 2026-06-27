@@ -1,0 +1,161 @@
+<!-- =========================================================
+     BALI PACKAGE SHOWCASE
+========================================================= -->
+<section id="bali" class="bg-[#1A1523] pt-36 pb-24 sm:pt-44 sm:pb-32">
+  <div class="mx-auto max-w-7xl px-5 sm:px-8">
+
+    <div data-reveal class="flex flex-wrap items-end justify-between gap-6">
+      <div>
+        <p class="eyebrow text-accent/80">First departure · Now booking</p>
+        <h2 class="mt-4 font-display text-3xl font-semibold text-white sm:text-4xl">Bali Group Departure</h2>
+        <p class="mt-3 max-w-lg text-white/55">8 Days · 7 Nights across Seminyak, Gili Trawangan &amp; Ubud — capped at 12–16 travelers per batch.</p>
+      </div>
+      <span class="badge-live shrink-0"><span class="badge-dot-live"></span>Live · Booking Open</span>
+    </div>
+
+    <!-- Route strip -->
+    <div data-reveal class="mt-10 flex flex-wrap items-center gap-3 font-mono text-xs uppercase tracking-wider text-white/50">
+      <span class="rounded-full border border-white/15 px-3 py-1.5">Seminyak · 2N</span>
+      <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h11M7 1l5 4-5 4" stroke="currentColor" stroke-width="1.3"/></svg>
+      <span class="rounded-full border border-white/15 px-3 py-1.5">Gili Trawangan · 2N</span>
+      <svg width="14" height="10" viewBox="0 0 14 10" fill="none"><path d="M1 5h11M7 1l5 4-5 4" stroke="currentColor" stroke-width="1.3"/></svg>
+      <span class="rounded-full border border-white/15 px-3 py-1.5">Ubud · 3N</span>
+    </div>
+
+    <!-- Itinerary timeline -->
+    <div id="itinerary-timeline" class="relative mt-16 grid gap-10 lg:grid-cols-[1fr_1.15fr] lg:gap-16">
+
+      <div class="relative">
+        <p data-reveal class="eyebrow mb-8 text-accent/80">Day-by-day itinerary</p>
+
+        <div class="relative pl-[3.4rem]">
+          <div class="absolute left-5 top-1 h-[calc(100%-1rem)] w-px bg-white/10"></div>
+          <div id="timeline-line" class="absolute left-5 top-1 h-[calc(100%-1rem)] w-px origin-top bg-primary"></div>
+
+          <ol class="space-y-8">
+            <li data-reveal class="relative">
+              <span class="day-marker absolute -left-[3.4rem] !bg-primary">1</span>
+              <h3 class="font-display text-base font-semibold text-white">Arrival in Bali</h3>
+              <p class="mt-1 text-sm text-white/55">Airport pickup · Hotel check-in, Seminyak · Sunset at FINNS Beach Club</p>
+            </li>
+            <li data-reveal class="relative">
+              <span class="day-marker absolute -left-[3.4rem]">2</span>
+              <h3 class="font-display text-base font-semibold text-white">South Bali Exploration</h3>
+              <p class="mt-1 text-sm text-white/55">Melasti Beach · Uluwatu Temple · Kecak Fire Dance at sunset</p>
+            </li>
+            <li data-reveal class="relative">
+              <span class="day-marker absolute -left-[3.4rem]">3</span>
+              <h3 class="font-display text-base font-semibold text-white">Transfer to Gili Trawangan</h3>
+              <p class="mt-1 text-sm text-white/55">Transfer to Padang Bai Harbour · Fast boat to Gili T · Check-in</p>
+            </li>
+            <li data-reveal class="relative">
+              <span class="day-marker absolute -left-[3.4rem]">4</span>
+              <h3 class="font-display text-base font-semibold text-white">Gili Island Experience</h3>
+              <p class="mt-1 text-sm text-white/55">Shared snorkelling trip with lunch included</p>
+            </li>
+            <li data-reveal class="relative">
+              <span class="day-marker absolute -left-[3.4rem]">5</span>
+              <h3 class="font-display text-base font-semibold text-white">Gili T → Ubud</h3>
+              <p class="mt-1 text-sm text-white/55">Transfer to Ubud · 60-min tandem ATV adventure · Check-in · Evening at leisure</p>
+            </li>
+            <li data-reveal class="relative">
+              <span class="day-marker absolute -left-[3.4rem]">6</span>
+              <h3 class="font-display text-base font-semibold text-white">Mount Batur Sunrise Trek</h3>
+              <p class="mt-1 text-sm text-white/55">Early pickup (~2:00 AM) · Guided sunrise trek up Mount Batur</p>
+            </li>
+            <li data-reveal class="relative">
+              <span class="day-marker absolute -left-[3.4rem]">7</span>
+              <h3 class="font-display text-base font-semibold text-white">Ubud Nature &amp; Leisure</h3>
+              <p class="mt-1 text-sm text-white/55">Tegenungan Waterfall · Coffee plantation visit · Cretya Ubud club entry</p>
+            </li>
+            <li data-reveal class="relative">
+              <span class="day-marker absolute -left-[3.4rem] !bg-primary">8</span>
+              <h3 class="font-display text-base font-semibold text-white">Departure</h3>
+              <p class="mt-1 text-sm text-white/55">Hotel checkout · Airport transfer · Departure</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- Inclusions / Exclusions card -->
+      <div data-reveal class="ticket glass-dark self-start rounded-[22px] p-1">
+        <div class="rounded-[18px] bg-white/[0.03] p-6 sm:p-8">
+
+          <div class="flex gap-2 rounded-full bg-white/5 p-1">
+            <button data-package-tab="inclusions" class="flex-1 rounded-full bg-primary px-4 py-2.5 text-sm font-medium text-white transition">Inclusions</button>
+            <button data-package-tab="exclusions" class="flex-1 rounded-full px-4 py-2.5 text-sm font-medium text-ink/60 text-white/50 transition">Exclusions</button>
+          </div>
+
+          <div data-package-panel="inclusions" class="mt-7">
+            <ul class="grid gap-3 text-sm text-white/70 sm:grid-cols-2">
+              <li class="flex gap-2"><span class="text-live">✓</span>2N stay in Gili Trawangan</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>3N stay in Ubud</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Twin/triple sharing stay</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>All transfers &amp; transport</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Airport pickup &amp; drop</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Seminyak → Padang Bai transfer</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Return fast boat to Gili T</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Padang Bai → Ubud transfer</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>All sightseeing transfers</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>FINNS Beach Club entry</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Melasti Beach visit</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Uluwatu Temple visit</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Kecak Fire Dance ticket</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Gili Islands snorkelling trip</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Lunch during ATV day</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>ATV adventure (60-min tandem)</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Mount Batur sunrise trek + guide</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Tegenungan Waterfall visit</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Coffee plantation visit</li>
+              <li class="flex gap-2"><span class="text-live">✓</span>Cretya Ubud club entry</li>
+              <li class="flex gap-2 font-medium text-white"><span class="text-live">✓</span>Dedicated trip captain</li>
+              <li class="flex gap-2 font-medium text-white"><span class="text-live">✓</span>24×7 on-ground assistance</li>
+            </ul>
+          </div>
+
+          <div data-package-panel="exclusions" class="mt-7 hidden">
+            <ul class="grid gap-3 text-sm text-white/70 sm:grid-cols-2">
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Flights &amp; international airfare</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Visa fees</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Travel insurance</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Meals not specifically mentioned</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Personal food &amp; beverages</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Alcoholic drinks</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Personal expenses &amp; shopping</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Laundry &amp; telephone charges</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Mini bar expenses</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Optional activities &amp; water sports</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Spa treatments</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Additional beach club spending</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Bicycle rental in Gili T</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Cidomo (horse cart) rides, Gili T</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Early check-in / late check-out</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Porterage services</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Tips &amp; gratuities</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Fuel surcharge / tax revisions</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>All applicable local taxes</li>
+              <li class="flex gap-2"><span class="text-white/30">✕</span>Anything not listed under inclusions</li>
+            </ul>
+          </div>
+
+          <a href="#" data-whatsapp data-whatsapp-template="bali" class="btn-primary mt-8 w-full !bg-white !text-ink hover:!bg-primary hover:!text-white">
+            Reserve Your Seat — Bali
+          </a>
+          <p class="mt-3 text-center text-xs text-white/35">Pax: 12–16 guests per batch · Group size is capped</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cross-link to other live departures -->
+<section class="bg-surface py-14">
+  <div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-6 px-5 sm:px-8">
+    <p class="text-sm text-ink/55">Looking at a different departure?</p>
+    <div class="flex flex-wrap gap-3">
+      <a href="dubai.html" class="btn-ghost text-sm">Dubai →</a>
+      <a href="singapore.html" class="btn-ghost text-sm">Singapore →</a>
+      <a href="destinations.html" class="btn-ghost text-sm">All destinations →</a>
+    </div>
+  </div>
+</section>
