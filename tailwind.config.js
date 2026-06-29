@@ -40,17 +40,11 @@ module.exports = {
         "grain": "radial-gradient(circle at 1px 1px, rgba(26,21,35,0.04) 1px, transparent 0)",
       },
       animation: {
-        "flap": "flap 0.55s cubic-bezier(.45,.05,.55,.95)",
         "float-slow": "floatSlow 8s ease-in-out infinite",
         "pulse-live": "pulseLive 2.2s ease-in-out infinite",
         "marquee": "marquee 38s linear infinite",
       },
       keyframes: {
-        flap: {
-          "0%": { transform: "rotateX(0deg)" },
-          "50%": { transform: "rotateX(-90deg)" },
-          "100%": { transform: "rotateX(0deg)" },
-        },
         floatSlow: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-14px)" },

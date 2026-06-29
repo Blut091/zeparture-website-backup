@@ -1,6 +1,6 @@
 /**
  * ZEPARTURE — MAIN INTERACTIONS
- * GSAP ScrollTrigger reveals + nav behaviour + hero departures board.
+ * GSAP ScrollTrigger reveals + nav behaviour + hero entrance/fade.
  */
 gsap.registerPlugin(ScrollTrigger);
 
@@ -41,7 +41,8 @@ if (menuBtn && mobileMenu) {
 }
 
 /* ---------------------------------------------------------
-   3. Hero entrance: headline, text, planes fade in, board powers on
+   3. Hero entrance: headline, text, and the proof card fade/slide up
+      ([data-hero-fade] now also covers the proof card — same stagger)
 --------------------------------------------------------- */
 if (!prefersReducedMotion) {
   gsap.from("[data-hero-word]", {
@@ -60,23 +61,13 @@ if (!prefersReducedMotion) {
     delay: 0.7,
     stagger: 0.12,
   });
-  gsap.to(".hero-plane", { opacity: 1, duration: 0.6, delay: 0.4 });
-  gsap.to("#hero-board", { opacity: 1, duration: 0.4, delay: 0.3 });
-  gsap.to("[data-board-row]", {
-    opacity: 1,
-    duration: 0.45,
-    ease: "power2.out",
-    stagger: 0.12,
-    delay: 0.4,
-  });
 } else {
   gsap.set("[data-hero-word], [data-hero-fade]", { opacity: 1, y: 0, yPercent: 0 });
-  gsap.set("#hero-board, [data-board-row]", { opacity: 1 });
 }
 
 /* ---------------------------------------------------------
-   4. Hero depth-parallax on scroll — three layers move at
-      different rates, text fades out first (no pin, no jack)
+   4. Hero scroll-out — a flat opacity fade only, intentionally
+      no scale/rotate/tilt (this hero is deliberately not "3D")
 --------------------------------------------------------- */
 if (!prefersReducedMotion) {
   ScrollTrigger.create({
@@ -85,15 +76,7 @@ if (!prefersReducedMotion) {
     end: "bottom top",
     scrub: true,
     onUpdate: (self) => {
-      const p = self.progress;
-      gsap.set("#hero-map-layer", { yPercent: p * 8 });
-      gsap.set("#hero-board-stage", {
-        yPercent: p * 22,
-        scale: 1 - p * 0.08,
-        rotateY: -16 - p * 8,
-      });
-      gsap.set("#hero-plane-layer", { yPercent: p * 35 });
-      gsap.set("#hero-text", { opacity: 1 - Math.min(p / 0.6, 1) });
+      gsap.set("#hero-text", { opacity: 1 - Math.min(self.progress / 0.6, 1) });
     },
   });
 }
@@ -156,59 +139,6 @@ if (timelineLine && !prefersReducedMotion) {
     }
   );
 }
-
-/* ---------------------------------------------------------
-   8. Hero departures board — each row cycles independently
-      through real destinations, desynced via stagger + offset
---------------------------------------------------------- */
-const BOARD_DESTINATIONS = [
-  { code: "BAL", status: "LIVE" },
-  { code: "DXB", status: "LIVE" },
-  { code: "SIN", status: "LIVE" },
-  { code: "BKK", status: "FIXED" },
-  { code: "KUL", status: "REQ" },
-  { code: "CMB", status: "REQ" },
-  { code: "HAN", status: "REQ" },
-  { code: "MLE", status: "REQ" },
-  { code: "MNL", status: "SOON" },
-  { code: "NRT", status: "SOON" },
-];
-
-function initBoardRow(rowEl, startIndex) {
-  const cells = rowEl.querySelectorAll("[data-flap-cell]");
-  const statusEl = rowEl.querySelector("[data-row-status]");
-  let idx = startIndex;
-
-  function setEntry(entry) {
-    cells.forEach((cell, i) => {
-      const char = entry.code[i] || "·";
-      if (prefersReducedMotion) {
-        cell.textContent = char;
-        return;
-      }
-      cell.classList.remove("animate-flap");
-      void cell.offsetWidth;
-      cell.classList.add("animate-flap");
-      setTimeout(() => {
-        cell.textContent = char;
-      }, 260);
-    });
-    if (statusEl) {
-      statusEl.textContent = entry.status;
-      statusEl.className = `board-status status-${entry.status.toLowerCase()}`;
-    }
-  }
-
-  setEntry(BOARD_DESTINATIONS[idx % BOARD_DESTINATIONS.length]);
-  if (!prefersReducedMotion) {
-    // stagger each row's interval slightly so they never sync up
-    setInterval(() => {
-      idx++;
-      setEntry(BOARD_DESTINATIONS[idx % BOARD_DESTINATIONS.length]);
-    }, 3000 + startIndex * 220);
-  }
-}
-document.querySelectorAll("[data-board-row]").forEach((row, i) => initBoardRow(row, i));
 
 /* ---------------------------------------------------------
    9. Destination card status badges flip-in on scroll
