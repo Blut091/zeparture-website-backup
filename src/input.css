@@ -46,7 +46,7 @@
     border: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  /* ---------- Hero background (sky glow + depth, replaces flat fill) ---------- */
+  /* ---------- Hero background (sky glow + depth) — used on sub-page headers ---------- */
   .hero-bg {
     background:
       radial-gradient(ellipse 50% 22% at 22% 78%, rgba(237, 224, 255, 0.07), transparent 70%),
@@ -56,9 +56,9 @@
       linear-gradient(165deg, #181020 0%, #150F1E 38%, #120C19 68%, #110E1A 100%);
   }
 
-  /* ---------- Hero: proof card (flat, no perspective/tilt — by design) ---------- */
-  .hero-proof-card {
-    border: 1px solid rgba(255, 255, 255, 0.08);
+  /* ---------- Homepage hero background — plain and minimal, on purpose ---------- */
+  .hero-bg-plain {
+    background: linear-gradient(160deg, #1A1523 0%, #110E1A 100%);
   }
 
   /* ---------- Nav theming ----------
