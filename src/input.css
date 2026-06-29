@@ -120,6 +120,53 @@
   .board-status.status-req { color: rgba(255,255,255,0.4); }
   .board-status.status-soon { color: rgba(255,255,255,0.25); }
 
+  /* ---------- Nav theming ----------
+     Most pages have a DARK hero/header directly under the fixed nav, so
+     nav text/icons default to light. Once scrolled (.nav-glass, light
+     pill background) or on a page whose top section is light from the
+     start (.nav-on-light, e.g. destinations.html), flip to dark text.
+     Using a dedicated block instead of Tailwind color utilities here on
+     purpose — #site-nav's specificity needs to reliably win regardless
+     of utility class generation order. */
+  #site-nav .nav-link,
+  #site-nav .nav-logo-text {
+    color: rgba(255, 255, 255, 0.85);
+  }
+  #site-nav .nav-link:hover {
+    color: #fff;
+  }
+  #site-nav .nav-menu-btn {
+    color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.28);
+  }
+  #site-nav .nav-link.active {
+    color: #C9A6FF !important;
+  }
+
+  #site-nav.nav-glass .nav-link,
+  #site-nav.nav-on-light .nav-link,
+  #site-nav.nav-glass .nav-logo-text,
+  #site-nav.nav-on-light .nav-logo-text {
+    color: rgba(26, 21, 35, 0.7);
+  }
+  #site-nav.nav-glass .nav-logo-text,
+  #site-nav.nav-on-light .nav-logo-text {
+    color: #1A1523;
+  }
+  #site-nav.nav-glass .nav-link:hover,
+  #site-nav.nav-on-light .nav-link:hover {
+    color: #7000E0;
+  }
+  #site-nav.nav-glass .nav-menu-btn,
+  #site-nav.nav-on-light .nav-menu-btn {
+    color: #1A1523;
+    border-color: rgba(26, 21, 35, 0.15);
+  }
+  #site-nav.nav-glass .nav-link.active,
+  #site-nav.nav-on-light .nav-link.active {
+    color: #7000E0 !important;
+  }
+
   /* ---------- Nav ---------- */
   .nav-glass {
     background: rgba(240, 238, 248, 0.72);

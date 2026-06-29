@@ -270,13 +270,21 @@ const yearEl = document.getElementById("footer-year");
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
 /* ---------------------------------------------------------
-   13. Highlight the active nav link based on body[data-page]
+   13. Nav theming per page: light-top pages need dark nav text
+       even before scrolling (destinations.html starts light,
+       everything else starts with a dark hero/header)
 --------------------------------------------------------- */
 const currentPage = document.body.dataset.page;
+if (currentPage === "destinations") {
+  nav.classList.add("nav-on-light");
+}
+
+/* ---------------------------------------------------------
+   14. Highlight the active nav link
+--------------------------------------------------------- */
 if (currentPage) {
   document.querySelectorAll(`[data-nav="${currentPage}"]`).forEach((link) => {
-    link.classList.remove("text-ink/70");
-    link.classList.add("text-primary");
+    link.classList.add("active");
   });
 }
 
